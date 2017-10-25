@@ -11,7 +11,7 @@ $(document).ready(function() {
 
 
     if (http.status == 200) {
-        //console.log(http.responseText);
+        console.log(http.responseText);
       var json = JSON.parse(http.responseText);
   //console.log("json");
 //console.log(json);
@@ -25,9 +25,9 @@ $(document).ready(function() {
       document.getElementById("DNI").value = json.data.user.dniRuc;
       document.getElementById("Phone").value = json.data.user.phone;
       document.getElementById("address").value = json.data.user.address;
-      document.getElementById("city").value = json.data.user.departamento;
-      document.getElementById("district").value = json.data.user.distrito;
-      document.getElementById("province").value = json.data.user.provincia;
+  //    document.getElementById("city").value = json.data.user.departamento;
+  //    document.getElementById("district").value = json.data.user.distrito;
+  //    document.getElementById("province").value = json.data.user.provincia;
     }
 
   };

@@ -1,27 +1,36 @@
 function actualizar(){
 alert("mamaaaaaaaaa");
 
-let data2 = JSON.parse(localStorage.getItem('user'));
+let local = JSON.parse(localStorage.getItem('user'));
 //console.log($("#profile-form").serializeArray());
 let data = $("#profile-form").serializeArray();
 //console.log(data);
-console.log(data2);
-console.log(data2.phone);
-data2.phone = '943701411';
 
+let temporal ={
+id: local.id,
+phone:  local.phone = '943701411',
+fisrtName:  local.firstName ='Carlos',
+lastName:  local.lastName ='Arbieto'
+};
+console.log(local);
+console.log(local.phone);
+local.phone = '943701411';
+local.firstName ='Carlos';
+local.lasName ='Arbieto';
 console.log("etiqueta");
 //console.log(obj);
-console.log(data2);
+console.log(local);
 
 
 $('.wow-animate').prepend('<section class="myhover"> <div class="site-spinner"></div></section>');
 
 
 var http = new XMLHttpRequest();
-http.open('PATCH', 'http://174.138.48.60:8080/jmc/rest/v1/users/'+ data2.id, true);
+http.open('POST', 'http://174.138.48.60:8080/jmc/rest/v1/users/', true);
 http.setRequestHeader('Content-type', 'application/json');
-  http.setRequestHeader('Authorization', localStorage.getItem("token"));
-http.send(JSON.stringify(data2)); // Make sure to stringify
+http.setRequestHeader('X-HTTP-Method-Override', "PATCH");
+http.setRequestHeader('Authorization', localStorage.getItem("token"));
+http.send(JSON.stringify(temporal)); // Make sure to stringify
 
 http.onreadystatechange = function() {
   console.log(http.responseText);
