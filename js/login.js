@@ -10,7 +10,7 @@ $(document).ready(function() {
     };
     console.log(obj);
 
-    const http = new XMLHttpRequest();
+    var http = new XMLHttpRequest();
        http.open('POST', 'http://174.138.48.60:8080/jmc/login', true);
        http.setRequestHeader('Content-type', 'application/json');
        http.send(JSON.stringify(obj)); // Make sure to stringify

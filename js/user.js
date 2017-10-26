@@ -23,11 +23,13 @@ $(document).ready(function() {
       document.getElementById("name").value = json.data.user.firstName;
       document.getElementById("lastName").value = json.data.user.lastName;
       document.getElementById("DNI").value = json.data.user.dniRuc;
+      document.getElementById("cellPhone").value = json.data.user.cellPhone;
       document.getElementById("Phone").value = json.data.user.phone;
+      document.getElementById("date").value = json.data.user.birthDate;
       document.getElementById("address").value = json.data.user.address;
-  //    document.getElementById("city").value = json.data.user.departamento;
-  //    document.getElementById("district").value = json.data.user.distrito;
-  //    document.getElementById("province").value = json.data.user.provincia;
+      document.getElementById("city").value = json.data.user.departamento;
+      document.getElementById("district").value = json.data.user.distrito;
+      document.getElementById("province").value = json.data.user.provincia;
     }
 
   };

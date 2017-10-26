@@ -1,83 +1,85 @@
-function actualizar(){
-alert("mamaaaaaaaaa");
+function actualizar() {
+  alert("mamaaaaaaaaa");
 
-let local = JSON.parse(localStorage.getItem('user'));
-//console.log($("#profile-form").serializeArray());
-let data = $("#profile-form").serializeArray();
-//console.log(data);
+  let local = JSON.parse(localStorage.getItem('user'));
+  //console.log($("#profile-form").serializeArray());
+  let data = $("#profile-form").serializeArray();
+  //console.log(data);
 
-let temporal ={
-id: local.id,
-phone:  local.phone = '943701411',
-fisrtName:  local.firstName ='Carlos',
-lastName:  local.lastName ='Arbieto'
-};
-console.log(local);
-console.log(local.phone);
-local.phone = '943701411';
-local.firstName ='Carlos';
-local.lasName ='Arbieto';
-console.log("etiqueta");
-//console.log(obj);
-console.log(local);
+  data ={
+  "address": data[6].value,
+ "birthDate": data[5].value,
+ "cellPhone": data[4].value,
+ "departamento": data[7].value,
+ "distrito": data[8].value,
+ "dniRuc": data[2].value,
+ "email": local.email,
+ "enabled" : local.enabled,
+ "expense" : local.expense,
+ "facebook" : local.facebook,
+ "firstName" : data[0].value,
+ "google":local.google,
+ "id" : null,
+ "lastName" : data[1].value,
+ "office" : null,
+ "password": null,
+ "phone" : data[3].value,
+ "provincia" : data[9].value,
+ "razonSocial" : "Carlos"
+  };
+
+//  $('.wow-animate').prepend('<section class="myhover"> <div class="site-spinner"></div></section>');
+  var http = new XMLHttpRequest();
+  http.open('PATCH', 'http://174.138.48.60:8080/jmc/rest/v1/users/updateprofile/', true);
+  http.setRequestHeader('Content-type', 'application/json');
+//  http.setRequestHeader('X-HTTP-Method-Override', "PATCH");
+  http.setRequestHeader('Authorization', localStorage.getItem("token"));
+  http.send(JSON.stringify(data)); // Make sure to stringify
+
+  http.onreadystatechange = function() {
+    console.log(http.responseText);
+    console.log(http.status);
 
 
-$('.wow-animate').prepend('<section class="myhover"> <div class="site-spinner"></div></section>');
+    /*
+      if (http.readyState === 4) {
 
+        var json = JSON.parse(http.responseText);
+        if (json.success == true) {
+          alert("Usuario Creado");
+          window.location.href = "index.html";
+        } else {
 
-var http = new XMLHttpRequest();
-http.open('POST', 'http://174.138.48.60:8080/jmc/rest/v1/users/', true);
-http.setRequestHeader('Content-type', 'application/json');
-http.setRequestHeader('X-HTTP-Method-Override', "PATCH");
-http.setRequestHeader('Authorization', localStorage.getItem("token"));
-http.send(JSON.stringify(temporal)); // Make sure to stringify
+          alert(json.message);
+          window.location.href = "registro.html";
+        }
 
-http.onreadystatechange = function() {
-  console.log(http.responseText);
-  console.log(http.status);
-
-
-/*
-  if (http.readyState === 4) {
-
-    var json = JSON.parse(http.responseText);
-    if (json.success == true) {
-      alert("Usuario Creado");
-      window.location.href = "index.html";
-    } else {
-
-      alert(json.message);
-      window.location.href = "registro.html";
-    }
-
-  }
-*/
-};
+      }
+    */
+  };
 
 
 }
 /*
-let da = {
-  id: data2.id,
-  email:data2.email,
-  phone:data[3].value,
-  enabled: data2.enabled,
-  firstName: data[0].value,
-  lastName: data[1].value,
-  expense: 1,
-  facebook: 0,
-  role: null {
-    email:data2.email,
-    id:66,
-    role:"ROLE_USUARIO"
-  },
-  office: null,
-  dniRuc: null,
-  razonSocial: null,
-  address: null,
-  distrito: null,
-  departamento: null,
-  provincia: null,
-  cellPhone: null
-};
-*/
+local ={
+  "address": "mi casita",
+ "birthDate": "22/01/1990",
+ "cellPhone": "244971",
+ "departamento": "Arequipa",
+ "distrito": "Arequipa",
+ "dniRuc": "46266642",
+ "email": null,
+ "enabled" : null,
+ "expense" : null,
+ "facebook" : null,
+ "firstName" : "hsdh",
+ "google": null,
+ "id" : null,
+ "lasName" : "shsh",
+ "lastName" : "Arbieto",
+ "office" : null,
+ "password": null,
+ "phone" : "70707070",
+ "provincia" : "Arequipa",
+ "razonSocial" : "Carlos"
+  };*/

@@ -2267,6 +2267,7 @@ form label.error {
         left: 0;
         width: 100%;
         height: 100%;
+
         background-color: #222;
         -webkit-transition: -webkit-transform 0.3s, background 0.25s ease;
         -webkit-transition: background 0.25s ease, -webkit-transform 0.3s;
@@ -2284,7 +2285,7 @@ header.header-dark .nav-bar-icon > span::after,
 header.header-dark.header-prepare .nav-bar-icon > span,
 header.header-dark.header-prepare .nav-bar-icon > span:before,
 header.header-dark.header-prepare .nav-bar-icon > span::after {
-    background-color: #fff;
+    background-color: #F07B1D;
 }
 
 header.header-light .nav-bar-icon > span,
@@ -2293,7 +2294,7 @@ header.header-light .nav-bar-icon > span::after,
 header.header-prepare .nav-bar-icon > span,
 header.header-prepare .nav-bar-icon > span:before,
 header.header-prepare .nav-bar-icon > span::after {
-    background-color: #222;
+    background-color: #F07B1D;
 }
 
 
